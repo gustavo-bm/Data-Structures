@@ -5,12 +5,12 @@
 
 void swap(int tam_emb[], int a, int b);
 void Insertion_Sort(int tam_emb[], int E);
-int Busca_Binaria(int tam_emb[], int garrafa, int E);
+long int Busca_Binaria(int tam_emb[], long int garrafa, int E);
 
 int main()
 {
     int E, tam_emb[10000];
-    int G, tam_garrafas[10000];
+    long int G, tam_garrafas[1000000];
 
     scanf("%d ", &E);
 
@@ -19,11 +19,11 @@ int main()
         scanf("%d", &tam_emb[i]);
     }
 
-    scanf("%d ", &G);
+    scanf("%ld ", &G);
 
     for (int j = 0; j < G; j++)
     {
-        scanf("%d", &tam_garrafas[j]);
+        scanf("%ld", &tam_garrafas[j]);
     }
 
     /* Insertion Sort*/
@@ -37,7 +37,7 @@ int main()
         }
         else
         {
-            printf("%d\n", Busca_Binaria(tam_emb, tam_garrafas[i], E));
+            printf("%ld\n", Busca_Binaria(tam_emb, tam_garrafas[i], E));
         }
     }
 
@@ -65,7 +65,7 @@ void swap(int tam_emb_aux[], int a, int b)
     tam_emb_aux[b] = t;
 }
 
-int Busca_Binaria(int tam_emb[], int garrafa, int E)
+long int Busca_Binaria(int tam_emb[], long int garrafa, int E)
 {
 
     if (garrafa > tam_emb[E - 1])
