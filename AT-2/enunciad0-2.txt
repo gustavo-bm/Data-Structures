@@ -1,0 +1,33 @@
+Poção (Embalagem)
+
+
+Encontre a embalagem mais apropriada, ou seja, a menor embalagem maior ou igual, para armazenar cada uma das garrafas de poções mágicas fornecidas. Considere que existe um número ilimitado de embalagem de cada tamanho.
+
+Entrada
+A primeira linha contém um inteiro E (1 ≤ E ≤ 10.000) que indica a quantidade de tamanhos diferentes de embalagens. Na segunda linha são fornecidos os E tamanhos de embalagens, separados por um espaço. Na terceira linha é fornecido o número de garrafas G (1 ≤ G < 1.000.000), e na linha seguinte os tamanhos de cada garrafa, também separados por um espaço. Todos os tamanhos, de embalagens e garrafas, são números inteiros positivos e menores ou iguais a 10.000.
+
+Saída
+Você deverá imprimir uma linha para cada garrafa fornecida. Nesta linha exiba o tamanho da menor embalagem que pode ser utilizada (maior ou igual). Quando não for possível encontrar um tamanho de embalagem, imprima a palavra “descartar”.
+
+
+Exemplo de Entrada                      Exemplo de Saída
+5                                       2
+
+6 3 4 2 7                               3
+
+6                                       2
+
+2 3 1 8 7 5                             descartar
+
+                                        7
+
+                                        6
+
+
+
+Restrições:
+- Documente adequadamente o código, incluindo a identificação do autor;
+
+- Utilize a busca binária;
+
+- Implemente um dos algoritmos de ordenação - InsertionSort, SelectionSort ou BubbleSort.

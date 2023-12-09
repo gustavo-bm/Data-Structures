@@ -1,0 +1,63 @@
+Por Jean Bez, beecrowd (Contest de Natal, 2014)
+
+O estábulo onde as renas ficam foi intencionalmente aberto pelo Elfo das Trevas, permitindo que cada uma delas corresse e voasse livremente pela 
+fábrica do Papai Noel, causando o maior transtorno. Os elfos estão tentando desesperadamente preparar o trenó para o embarque. Sua responsabilidade
+ é posicionar cada rena na sua posição correta assim que ela é capturada por um dos outros elfos.
+
+Você sabe que o estábulo segue uma organização baseada na ordem em que as renas irão ocupar o trenó. Desta forma, na hora da partida, todas podem 
+ser facilmente posicionadas. Diferentemente do que muitos pensam, as renas são posicionadas em uma fila única à frente no trenó. Nem todas as renas
+do estábulo são utilizadas em cada viagem; isso depende da carga total do trenó.
+
+Você recebeu a lista com as características que são utilizadas para determinar a ordem das renas. Elas devem ser ordenadas primeiramente de forma 
+decrescente por peso. Caso duas ou mais apresentem o mesmo peso, elas devem ser ordenadas de forma ascendente pela idade, após pela altura e, caso 
+ainda persista o empate, pelo nome.
+
+Utilizando seu computador mágico de última geração, você quer escrever um programa que ordene as renas de acordo com as características informadas 
+e exiba somente o número exato de renas que serão utilizadas no trenó, de forma ordenada.
+
+Especificação de entrada e saída:
+
+Entrada:
+A primeira linha de cada caso de teste contém dois inteiros N e M, que indicam, respectivamente, o número total de renas e o número de renas que 
+irão puxar o trenó. Em seguida, serão informadas uma string S seguida por dois inteiros P e I e, por fim, um número de ponto flutuante A, indicando
+respectivamente o nome, o peso, a idade e a altura de cada uma das renas. O nome de cada uma das renas é composto somente por uma palavra com até 
+100 caracteres.
+
+Saída:
+Para cada caso de teste, você deverá exibir a mensagem "CENARIO", seguida da posição e o nome de cada uma das M renas que irão puxar o trenó, 
+ordenadas conforme descrito acima.
+
+Exemplos:
+
+(1)
+Entrada:
+9 5
+Rudolph 50 100 1.12
+Dasher 10 121 1.98
+Dancer 10 131 1.14
+Prancer 7 142 1.36
+Vixen 50 110 1.42
+Comet 50 121 1.21
+Cupid 50 107 1.45
+Donner 30 106 1.23
+Blitzen 50 180 1.84
+
+Saída:
+CENARIO
+1 - Rudolph
+2 - Cupid
+3 - Vixen
+4 - Comet
+5 - Blitzen
+
+(2)
+Entrada:
+3 1
+Dasher 10 121 1.98
+Dancer 10 131 1.14
+Rudolph 50 100 1.12
+
+Saída:
+CENARIO
+1 - Rudolph
+

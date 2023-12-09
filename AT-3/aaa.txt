@@ -1,0 +1,44 @@
+O conjunto de instruções MIPS (Microprocessor without Interlocked Pipeline Stages) é uma arquitetura de conjunto de instruções comum em muitos processadores, especialmente em contextos acadêmicos e incorporados. Aqui estão algumas instruções MIPS básicas e um breve resumo do que cada uma faz, juntamente com sua representação em linguagem assembly:
+
+1. ADD (addição):
+   - Formato: `add $dest, $src1, $src2`
+   - Descrição: Soma o conteúdo dos registradores `$src1` e `$src2` e armazena o resultado em `$dest`.
+
+2. SUB (subtração):
+   - Formato: `sub $dest, $src1, $src2`
+   - Descrição: Subtrai o conteúdo do registrador `$src2` do registrador `$src1` e armazena o resultado em `$dest`.
+
+3. AND (bitwise AND):
+   - Formato: `and $dest, $src1, $src2`
+   - Descrição: Realiza uma operação lógica AND bit a bit entre os conteúdos dos registradores `$src1` e `$src2` e armazena o resultado em `$dest`.
+
+4. OR (bitwise OR):
+   - Formato: `or $dest, $src1, $src2`
+   - Descrição: Realiza uma operação lógica OR bit a bit entre os conteúdos dos registradores `$src1` e `$src2` e armazena o resultado em `$dest`.
+
+5. SLT (set less than):
+   - Formato: `slt $dest, $src1, $src2`
+   - Descrição: Define `$dest` como 1 se `$src1` for menor que `$src2`, senão define como 0.
+
+6. LW (load word):
+   - Formato: `lw $dest, offset($base)`
+   - Descrição: Carrega uma palavra da memória no endereço calculado por `offset + $base` e armazena em `$dest`.
+
+7. SW (store word):
+   - Formato: `sw $src, offset($base)`
+   - Descrição: Armazena o conteúdo do registrador `$src` na memória no endereço calculado por `offset + $base`.
+
+8. BEQ (branch if equal):
+   - Formato: `beq $src1, $src2, offset`
+   - Descrição: Salta para a instrução no endereço `offset` se os registradores `$src1` e `$src2` forem iguais.
+
+9. J (jump):
+   - Formato: `j target`
+   - Descrição: Salto incondicional para a instrução no endereço `target`.
+
+10. JR (jump register):
+    - Formato: `jr $src`
+    - Descrição: Salto incondicional para o endereço contido no registrador `$src`.
+
+Essas são apenas algumas instruções básicas do conjunto MIPS. Existem muitas outras instruções que realizam diversas operações. A representação exata pode variar um pouco dependendo do montador ou do compilador utilizado. Certifique-se de consultar a documentação relevante para obter informações mais detalhadas.
+

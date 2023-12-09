@@ -1,0 +1,96 @@
+Atividade 05
+
+
+Faça um programa que receba a entrada especificada a seguir e calcule as saídas solicitadas. Implemente uma solução recursiva para cada informação definida como saída.
+
+
+Entrada:
+
+Serão fornecidas duas linhas na entrada padrão. A primeira contendo apenas um número, representando o total de números inteiros fornecidos na segunda linha. 
+Os números estarão separados por um espaço. Não serão fornecidos mais do que 500 números. Pelo menos 1 número é fornecido.
+
+
+Saída:
+
+Imprima na saída padrão seis linhas, contendo:
+
+a soma dos números fornecidos;
+
+o maior elemento;
+
+o menor elemento;
+
+se a sequencia é estritamente crescente, ou não;
+
+se a sequência é estritamente decrescente, ou não;
+
+se a sequência é espelhada (“vetor palíndromo”, números iguais se lidos da esquerda para a direita ou da direita para a esquerda), ou não;
+
+Respeite o formado exibido nos exemplos.
+
+
+Exemplos:
+
+(1) Entrada
+
+10
+
+3 21 -3 5 8 3 5 0 2 1
+
+Soma: 45
+
+Maior: 21
+
+Menor: -3
+
+Crescente: nao
+
+Decrescente: nao
+
+Espelhada: nao
+
+(2)
+4
+
+3 10 10 3
+
+Soma: 26
+
+Maior: 10
+
+Menor: 3
+
+Crescente: nao
+
+Decrescente: nao
+
+Espelhada: sim
+
+
+(3)
+8
+
+1 2 3 4 5 6 7 8
+
+Soma: 36
+
+Maior: 8
+
+Menor: 1
+
+Crescente: sim
+
+Decrescente: nao
+
+Espelhada: nao
+
+
+
+Observações:
+
+Submeta: código-fonte (completo) contendo todas as funções implementadas;
+
+Documente adequadamente o seu código, incluindo a sua identificação;
+
+Não utilize variáveis globais;
+

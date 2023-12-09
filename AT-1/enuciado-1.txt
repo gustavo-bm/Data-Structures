@@ -1,0 +1,28 @@
+Atividade 01
+
+O objetivo desta atividade é fazer uma análise empírica (simples) de algum dos algoritmos de ordenação que você implementou no período letivo anterior (escolha um). Caso não tenha realizado esta atividade, implemente um algoritmo de ordenação sem se preocupar com qualquer questão (complexidade, estratégia conhecida, etc ...), como um aluno iniciante de programação faria.
+
+
+Preencha um vetor com números aleatórios (você pode reaproveitar os códigos do exemplo.zip disponível no Google Classroom da disciplina) e forneça este vetor desordenado como entrada para o seu algoritmo de ordenação.
+
+
+Inclua no seu algoritmo dois contadores, que serão incrementados toda vez que seu algoritmo realizar:
+
+1) uma comparação (menor ou maior);
+
+2) uma troca de posição de elementos.
+
+
+Os valores destes contadores devem ser a saída do seu programa. Veja que o vetor ordenado não é tão importante aqui, mas confira se os valores estão em ordem.
+
+
+Execute pelo menos 5 vezes para cada tamanho de entrada, para entradas desde de 10 elementos até 10 mil, 100 mil ou 1 milhão ou até onde conseguir em 10 segundos +/- (dependerá de qual estratégia você implementou e computador utilizado). Anote os valores dos contadores para cada instância executada.
+
+
+Plote em um gráfico para cada contador (valor em relação ao tamanho de entrada). Você terá mais de um valor por tamanho de entrada, e vários tamanhos de entrada diferentes.
+
+
+Se desejar, faça um terceiro gráfico com o tempo. Você pode seguir o código de exemplo que utiliza o include "time.h".
+
+
+Tente inferir qual função aproximará bem estes valores. Enquanto não chegar em uma conclusão, execute com tamanhos de entradas diferentes.
