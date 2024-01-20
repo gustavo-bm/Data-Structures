@@ -1,0 +1,22 @@
+Porcas e Parafusos
+
+
+
+Considere um conjunto de N porcas de tamanhos diferentes e N parafusos de diferentes tamanhos. Cada porca encaixa perfeitamente em apenas um 
+parafuro e cada parafuso se encaixa perfeitamente em apenas uma porca. Você não consegue comparar parafasusos entre si, e nem porcas entre si. 
+Você consegue comparar uma porca e um parafuso, ou seja, ver quem é maior/menor ou se são iguais (se encaixam).
+
+Faça um programa que encontre eficientemente os encaixes perfeitos.
+
+Entrada
+O programa deve receber como entrada 3 linhas: 
+- a primeira que contém um inteiro, representando o número de porcas e de parafusos, sendo 1 ≤ N ≤ 200.000. 
+- A segunda linha contém todos os tamanhos de porcas, que são números inteiros, separados por espaço. 
+- A terceira linha contém todos os tamanhos de parafusos, que são números inteiros, separados por espaço.
+
+Saída
+Seu programa deve imprimir N linhas, contendo cada um os pares encontrados. Utilize o padrão de saída a seguir:
+
+for(int i=0; i<n; i++)
+
+printf("%d - %d\n", porcas[i], parafusos[i]);

@@ -1,0 +1,41 @@
+Poção (Garrafa)
+
+
+
+Encontre a quantidade de poção mais apropriada, ou seja, a maior quantidade menor ou igual, para armazenar dentro de cada uma das garrafas de poções mágicas fornecidas. 
+Considere que existe um número ilimitado de poções de cada quantidade.
+
+Entrada
+A primeira linha contém um inteiro P (1 ≤ P ≤ 1.000.000) que indica o número de quantidades diferentes de poções. Na segunda linha são fornecidos as P quantidades de 
+poções, separados por um espaço. Na terceira linha é fornecido o número de garrafas G (1 ≤ G < 1.000.000), e na linha seguinte os tamanhos de cada garrafa, também 
+separados por um espaço. Todos os tamanhos, de poções e garrafas, são números inteiros positivos e menores ou iguais a 10.000.000.
+
+Saída
+Você deverá imprimir uma linha para cada garrafa fornecida. Nesta linha exiba o tamanho da maior quantidade de poção que pode ser utilizada (menor ou igual). 
+Quando não for possível encontrar uma quantidade de poção, imprima a palavra “descartar”.
+
+
+Exemplo de Entrada                  Exemplo de Saída
+
+
+5                                   2
+
+6 3 4 2 7                           3                               
+
+6                                   descartar
+
+2 3 1 8 7 5                         7
+
+                                    7
+
+                                    4
+
+
+
+
+Restrições
+Documente adequadamente o código, incluindo a identificação do autor;
+
+Utilize a busca binária;
+
+Implemente um algoritmo de ordenação diferente do exercício anterior.

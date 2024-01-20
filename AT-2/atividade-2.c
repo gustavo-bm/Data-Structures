@@ -1,4 +1,4 @@
-/* Aluno: Gustavo Bianchini MOraeS - R.A.: 823415 - Disciplina: Estruturas de Dados*/
+/* Aluno: Gustavo Bianchini Moraes - R.A.: 823415 - Disciplina: Estruturas de Dados*/
 
 #include <stdio.h>
 #include <stdlib.h>

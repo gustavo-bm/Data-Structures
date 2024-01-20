@@ -61,3 +61,45 @@ void merge(int vetor[], int aux[], int imin, int imid, int imax) {
         else
             vetor[k] = aux[i++];
 }
+
+
+/*if (key < vetor[1])
+    {
+        return (-1);
+    }
+
+    int imax = max - 1, imin = 0;
+
+    while (imax > imin)
+    {
+        int imid = imin + ((imax - imin) / 2);
+
+        if (key < vetor[imid])
+        {
+            imax = imid - 1;
+        }
+        else if (key > vetor[imid])
+        {
+            if (imid == 0)
+            {
+                return (vetor[max]);
+            }
+            else
+            {
+                imin = imid + 1;
+            }
+        }
+        else
+        {
+            return (vetor[imid]);
+        }
+    }
+
+    if (key <= vetor[imax])
+    {
+        return (vetor[imax]);
+    }
+    else
+    {
+        return (vetor[imax + 1]);
+    }*/
