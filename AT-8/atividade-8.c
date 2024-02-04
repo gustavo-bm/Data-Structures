@@ -1,80 +1,96 @@
+/* Gustavo Bianchini Moraes - R.A.: 823415 - Disciplina: Estruturas de Dados*/
+
 #include <stdio.h>
 
-void swap(int vetor[], int a, int b);
-void Insertion_Sort(int vetor[], int max);
-void Retira_repetidos(int vetor[], int max);
-void teste(int vetor[], int max);
-int busca(int vetor[], int max, int key);
+void merge_sort(long int vetor[], long int aux[], int imin, int imax);
+void merge(long int vetor[], long int aux[], int imin, int imid, int imax);
+void retira_repetidos(long int vetor[], int max);
+int retira_zeros(long int vetor[], int max);
+int busca_binaria(long int vetor[], int max, int key);
 
 int main()
 {
-    int N, porcas[200000], parafusos[200000], novo_max = 0;
+    long int N, novo_max = 0;
+    int num_dif_porcas, num_dif_parafusos;
 
-    scanf("%d", &N);
+    scanf("%ld", &N);
+    long int porcas[N], parafusos[N], vetor_aux[N];
 
     for (int i = 0; i < N; i++)
     {
-        scanf("%d", &porcas[i]);
+        scanf("%ld", &porcas[i]);
     }
 
-    Insertion_Sort(porcas, N);
+    merge_sort(porcas, vetor_aux, 0, N - 1);
 
     for (int j = 0; j < N; j++)
     {
-        scanf("%d", &parafusos[j]);
+        scanf("%ld", &parafusos[j]);
     }
 
-    Insertion_Sort(parafusos, N);
+    merge_sort(parafusos, vetor_aux, 0, N - 1);
 
-    Retira_repetidos(porcas, N);
-    teste(porcas, N);
+    retira_repetidos(porcas, N);
+    num_dif_porcas = retira_zeros(porcas, N);
 
-    Retira_repetidos(parafusos, N);
-    teste(parafusos, N);
+    retira_repetidos(parafusos, N);
+    num_dif_parafusos = retira_zeros(parafusos, N);
 
-    for (int i = 0; i < N; i++)
+    for (int i = 0; i < num_dif_porcas; i++)
     {
-        if (porcas[i] != 0)
+        if (busca_binaria(parafusos, num_dif_parafusos, porcas[i]))
         {
-            if(busca(parafusos, N, porcas[i]))
-            {
-                porcas[novo_max] = porcas[i];
-                parafusos[novo_max] = porcas[i];
-                novo_max++;
-            }
+            vetor_aux[novo_max] = porcas[i];
+            novo_max++;
         }
     }
 
     for (int i = 0; i < novo_max; i++)
     {
-        printf("%d - %d\n", porcas[i], parafusos[i]);
+        porcas[i] = vetor_aux[i];
+        parafusos[i] = vetor_aux[i];
+    }
+
+    for (int i = 0; i < novo_max; i++)
+    {
+        printf("%ld - %ld\n", porcas[i], parafusos[i]);
     }
 
     return 0;
 }
 
-void Insertion_Sort(int vetor[], int max)
+void merge_sort(long int vetor[], long int aux[], int imin, int imax)
 {
-    for (int k = 1; k < max; k++)
-    {
-        int l = k;
+    if (imax <= imin)
+        return;
 
-        while (l > 0 && vetor[l - 1] > vetor[l])
-        {
-            swap(vetor, l - 1, l);
-            l--;
-        }
-    }
+    int imid = imin + ((imax - imin) / 2);
+
+    merge_sort(vetor, aux, imin, imid);
+    merge_sort(vetor, aux, imid + 1, imax);
+
+    merge(vetor, aux, imin, imid, imax);
 }
 
-void swap(int vetor_aux[], int a, int b)
+void merge(long int vetor[], long int aux[], int imin, int imid, int imax)
 {
-    int t = vetor_aux[a];
-    vetor_aux[a] = vetor_aux[b];
-    vetor_aux[b] = t;
+    int i = imin, j = imid + 1;
+
+    for (int k = imin; k <= imax; k++)
+        aux[k] = vetor[k];
+
+    for (int k = imin; k <= imax; k++)
+        if (i > imid)
+            vetor[k] = aux[j++];
+        else if (j > imax)
+            vetor[k] = aux[i++];
+        else if (aux[j] < aux[i])
+            vetor[k] = aux[j++];
+        else
+            vetor[k] = aux[i++];
 }
 
-void Retira_repetidos(int vetor[], int max)
+void retira_repetidos(long int vetor[], int max)
 {
     int j;
     for (int i = 0; i < max; i++)
@@ -89,17 +105,9 @@ void Retira_repetidos(int vetor[], int max)
     }
 }
 
-void teste(int vetor[], int max)
+int retira_zeros(long int vetor[], int max)
 {
-    for (int j = 0; j < max; j++)
-    {
-        printf("%d ", vetor[j]);
-    }
-
-    printf("\n");
-}
-
-int busca(int vetor[], int max, int key){
+    int j = 0;
 
     for (int i = 0; i < max; i++)
     {
@@ -107,12 +115,38 @@ int busca(int vetor[], int max, int key){
         {
             i++;
         }
-
-        if (vetor[i] > key)
+        if (i < max)
         {
-            return 0;
+            vetor[j] = vetor[i];
+            j++;
         }
-        else if (vetor[i] == key)
+    }
+
+    return j;
+}
+
+int busca_binaria(long int vetor[], int max, int key)
+{
+    int imin = 0, imax = max - 1;
+
+    while (imax >= imin)
+    {
+        int imid = imin + ((imax - imin) / 2);
+
+        if (imid < 0)
+        {
+            break;
+        }
+
+        if (key > vetor[imid])
+        {
+            imin = imid + 1;
+        }
+        else if (key < vetor[imid])
+        {
+            imax = imid - 1;
+        }
+        else
         {
             return 1;
         }

@@ -1,123 +1,124 @@
-/* Aluno: Gustavo Bianchini Moraes - R.A.: 823415 - Disciplina: Estruturas de Dados*/
+/* Gustavo Bianchini Moraes - R.A.: 823415 - Disciplina: Estruturas de Dados*/
 
 #include <stdio.h>
 #include <stdlib.h>
 
-void merge_sort(long int vetor[], long int aux[], long int imin, long int imax);
-void merge(long int vetor[], long int aux[], long int imin, long int imid, long int imax);
-long int Busca_Binaria(long int tam_emb[], long int garrafa, long int E);
-
-int main()
+int Busca_Binaria(int vetor[], int max, int key)
 {
-    long int P, G, qtdes_pocoes[10000], tam_garrafas[10000];
-    long int aux[10000];
+    int imin = 0, imax = max - 1, resultado = -1;
 
-    scanf("%ld", &P);
-
-    for (int i = 0; i < P; i++)
+    while (imin <= imax)
     {
-        scanf("%ld", &qtdes_pocoes[i]);
-    }
+        int imid = (imin + imax) / 2;
 
-    scanf("%ld", &G);
-
-    for (int j = 0; j < G; j++)
-    {
-        scanf("%ld", &tam_garrafas[j]);
-    }
-
-    /* Merge Sort*/
-    merge_sort(qtdes_pocoes, aux, 0, G--);
-
-    for (int i = 0; i <= G; i++)
-    {
-        if (Busca_Binaria(qtdes_pocoes, tam_garrafas[i], G) < 0)
+        if (vetor[imid] <= key)
         {
-            printf("descartar\n");
+            resultado = imid;
+            imin = imid + 1;
         }
         else
-        {
-            printf("%ld\n", Busca_Binaria(qtdes_pocoes, tam_garrafas[i], G));
-        }
-    }
-    return (0);
-}
-
-void merge_sort(long int vetor[], long int aux[], long int imin, long int imax)
-{
-    if (imax <= imin)
-        return;
-
-    int imid = imin + ((imax - imin) / 2);
-
-    // Chama recursivamente mergesort para as metades esquerda e direita
-    merge_sort(vetor, aux, imin, imid);
-    merge_sort(vetor, aux, imid + 1, imax);
-
-    // Chama a função merge para combinar as duas metades ordenadas
-    merge(vetor, aux, imin, imid, imax);
-}
-
-void merge(long int vetor[], long int aux[], long int imin, long int imid, long int imax)
-{
-    int i = imin, j = imid + 1;
-
-    // Copia os elementos para o vetor auxiliar
-    for (int k = imin; k <= imax; k++)
-        aux[k] = vetor[k];
-
-    // Combina as duas metades ordenadas no vetor original
-    for (int k = imin; k <= imax; k++)
-        if (i > imid)
-            vetor[k] = aux[j++];
-        else if (j > imax)
-            vetor[k] = aux[i++];
-        else if (aux[j] < aux[i])
-            vetor[k] = aux[j++];
-        else
-            vetor[k] = aux[i++];
-}
-
-long int Busca_Binaria(long int vetor[], long int key, long int max)
-{
-    long int imin = 1, imax = max;
-
-    if (key < vetor[1])
-    {
-        return (-1);
-    }
-
-    while (imin < imax)
-    {
-        long int imid = imin + ((imax - imin) / 2);
-
-        if (key < vetor[imid])
         {
             imax = imid - 1;
         }
-        else if (key > vetor[imid])
+    }
+
+    return resultado;
+}
+
+void merge(int vetor[], int l, int m, int r)
+{
+    int i, j, k;
+    int n1 = m - l + 1;
+    int n2 = r - m;
+
+    int L[n1], R[n2];
+
+    for (i = 0; i < n1; i++)
+        L[i] = vetor[l + i];
+    for (j = 0; j < n2; j++)
+        R[j] = vetor[m + 1 + j];
+
+    i = 0;
+    j = 0;
+    k = l;
+
+    while (i < n1 && j < n2)
+    {
+        if (L[i] <= R[j])
         {
-            if (imid == max)
-            {
-                return vetor[max];
-            }
-            else
-            {
-                imin = imid + 1;
-            }
+            vetor[k] = L[i];
+            i++;
         }
         else
         {
-            return vetor[imid];
+            vetor[k] = R[j];
+            j++;
         }
+        k++;
     }
 
-    if (key > vetor[imax])
+    while (i < n1)
     {
-        return (vetor[imax]);
+        vetor[k] = L[i];
+        i++;
+        k++;
     }
-    else
+
+    while (j < n2)
     {
+        vetor[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+void mergeSort(int vetor[], int l, int r)
+{
+    if (l < r)
+    {
+        int m = l + (r - l) / 2;
+
+        mergeSort(vetor, l, m);
+        mergeSort(vetor, m + 1, r);
+
+        merge(vetor, l, m, r);
+    }
+}
+
+int main()
+{
+    int P, G;
+
+    scanf("%d", &P);
+
+    int pocoes[P];
+    for (int i = 0; i < P; i++)
+    {
+        scanf("%d", &pocoes[i]);
+    }
+
+    scanf("%d", &G);
+
+    int garrafas[G];
+    for (int i = 0; i < G; i++)
+    {
+        scanf("%d", &garrafas[i]);
+    }
+
+    mergeSort(pocoes, 0, P - 1);
+
+    for (int i = 0; i < G; i++)
+    {
+        int resultado = Busca_Binaria(pocoes, P, garrafas[i]);
+
+        if (resultado != -1)
+        {
+            printf("%d\n", pocoes[resultado]);
+        }
+        else
+        {
+            printf("descartar\n");
+        }
     }
 
     return 0;
